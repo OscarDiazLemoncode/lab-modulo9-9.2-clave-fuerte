@@ -1,4 +1,9 @@
-import { valorInput, tieneMayusculasYMinusculas } from './motor';
+import {
+  valorInput,
+  tieneMayusculasYMinusculas,
+  tieneNumeros,
+  tieneCaracteresEspeciales,
+} from './motor';
 
 // Muestra mensaje de errores
 export const mostrarTextoError = (texto: string): string => {
@@ -38,6 +43,8 @@ export const eventos = () => {
     input.addEventListener('input', () => {
       const clave = valorInput();
       console.log(tieneMayusculasYMinusculas(clave));
+      console.log(tieneNumeros(clave));
+      console.log(tieneCaracteresEspeciales(clave));
     });
   }
 };
