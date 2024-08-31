@@ -3,7 +3,11 @@ import {
   tieneMayusculasYMinusculas,
   tieneNumeros,
   tieneCaracteresEspeciales,
+  tieneLongitudMinima,
+  tieneNombreUsuario,
+  tienePalabrasComunes,
 } from './motor';
+import { commonPasswords } from './model';
 
 // Muestra mensaje de errores
 export const mostrarTextoError = (texto: string): string => {
@@ -45,6 +49,9 @@ export const eventos = () => {
       console.log(tieneMayusculasYMinusculas(clave));
       console.log(tieneNumeros(clave));
       console.log(tieneCaracteresEspeciales(clave));
+      console.log(tieneLongitudMinima(clave));
+      console.log(tieneNombreUsuario('Lemoncode', clave));
+      console.log(tienePalabrasComunes(commonPasswords, clave));
     });
   }
 };

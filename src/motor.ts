@@ -1,4 +1,4 @@
-import { /* commonPasswords, */ ValidacionClave } from './model';
+import { commonPasswords, ValidacionClave } from './model';
 import { mostrarTextoError, limpiarTextoError } from './ui';
 
 // Obtener value del input
@@ -56,7 +56,6 @@ export const tieneNumeros = (clave: string): ValidacionClave => {
 export const tieneCaracteresEspeciales = (clave: string): ValidacionClave => {
   const textoError = 'La clave debe de tener caracteres especiales';
   const caracteresEspeciales = " !@#$%^&*()_+[]{}|;:',.<>?/~`-=";
-  console.log(caracteresEspeciales.length);
   const tieneCaracteresEsp = clave
     .split('')
     .some((elemento) => caracteresEspeciales.includes(elemento));
@@ -65,5 +64,53 @@ export const tieneCaracteresEspeciales = (clave: string): ValidacionClave => {
     : {
         esValida: false,
         error: mostrarTextoError(textoError),
+      };
+};
+
+// La clave debe de tener una longitud mínima de 8 caracteres.
+export const tieneLongitudMinima = (clave: string): ValidacionClave => {
+  const textoError =
+    'La clave debe de tener una longitud mínima de 8 caracteres';
+  const tieneMasDe8Caracteres = clave.length;
+  return tieneMasDe8Caracteres >= 8
+    ? { esValida: true, error: limpiarTextoError() }
+    : {
+        esValida: false,
+        error: mostrarTextoError(textoError),
+      };
+};
+
+// La clave no debe tener el nombre del usuario.
+export const tieneNombreUsuario = (
+  nombreUsuario: string,
+  clave: string
+): ValidacionClave => {
+  const textoError = 'La clave no debe tener el nombre del usuario';
+
+  return nombreUsuario === clave ||
+    nombreUsuario.toLowerCase() === clave.toLowerCase() ||
+    nombreUsuario.toUpperCase() === clave.toUpperCase()
+    ? { esValida: false, error: mostrarTextoError(textoError) }
+    : {
+        esValida: true,
+        error: limpiarTextoError(),
+      };
+};
+
+// La clave no debe de contener palabras comunes
+export const tienePalabrasComunes = (
+  clave: string,
+  commonPasswords: string[]
+): ValidacionClave => {
+  const textoError = 'La clave no debe de contener palabras comunes';
+
+  const palabrasComunes = commonPasswords.some((palabra) =>
+    clave.includes(palabra)
+  );
+  return palabrasComunes
+    ? { esValida: false, error: mostrarTextoError(textoError) }
+    : {
+        esValida: true,
+        error: limpiarTextoError(),
       };
 };
