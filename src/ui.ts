@@ -1,5 +1,6 @@
 import {
-  valorInput,
+  valorInputNombre,
+  valorInputContraseña,
   tieneMayusculasYMinusculas,
   tieneNumeros,
   tieneCaracteresEspeciales,
@@ -22,8 +23,8 @@ export const mostrarTextoError = (texto: string): string => {
   throw new Error('No se muestra el texto del error');
 };
 
-// Muestra mensaje de errores
-export const limpiarTextoError = () => {
+// Limpia mensaje de errores
+/* export const limpiarTextoError = () => {
   const mensaje = document.querySelector('.mensaje');
   if (
     mensaje !== null &&
@@ -33,11 +34,11 @@ export const limpiarTextoError = () => {
     return (mensaje.textContent = '');
   }
   throw new Error('No se muestra el texto del error');
-};
+}; */
 
 // Eventos
 export const eventos = () => {
-  // Cambios en el input de entrada
+  // Cambios en el input de contraseña
   const input = document.querySelector('#input_password');
   if (
     input !== null &&
@@ -45,12 +46,13 @@ export const eventos = () => {
     input instanceof HTMLInputElement
   ) {
     input.addEventListener('input', () => {
-      const clave = valorInput();
+      const nombreUsuario = valorInputNombre();
+      const clave = valorInputContraseña();
       console.log(tieneMayusculasYMinusculas(clave));
       console.log(tieneNumeros(clave));
       console.log(tieneCaracteresEspeciales(clave));
       console.log(tieneLongitudMinima(clave));
-      console.log(tieneNombreUsuario('Lemoncode', clave));
+      console.log(tieneNombreUsuario(nombreUsuario, clave));
       console.log(tienePalabrasComunes(clave, commonPasswords));
     });
   }

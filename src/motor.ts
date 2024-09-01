@@ -1,8 +1,20 @@
-import { /* commonPasswords, */ ValidacionClave } from './model';
-import { mostrarTextoError, limpiarTextoError } from './ui';
+import { ValidacionClave } from './model';
+import { mostrarTextoError /* , limpiarTextoError */ } from './ui';
 
-// Obtener value del input
-export const valorInput = (): string => {
+// Obtener value del input nombre
+export const valorInputNombre = (): string => {
+  const nombre = document.querySelector('#nombre_usuario');
+  if (
+    nombre !== null &&
+    nombre !== undefined &&
+    nombre instanceof HTMLInputElement
+  ) {
+    return nombre.value;
+  }
+  throw new Error('No se ha definido una entrada en el input nombre');
+};
+// Obtener value del input contraseña
+export const valorInputContraseña = (): string => {
   const input = document.querySelector('#input_password');
   if (
     input !== null &&
@@ -11,7 +23,7 @@ export const valorInput = (): string => {
   ) {
     return input.value;
   }
-  throw new Error('No se ha definido una entrada en el input');
+  throw new Error('No se ha definido una entrada para el input de contraseña');
 };
 
 // Valida que la clave tenga mayúsculas y minúsculas.
@@ -29,7 +41,7 @@ export const tieneMayusculasYMinusculas = (clave: string): ValidacionClave => {
   return tieneMayusculas === true && tieneMinusculas === true
     ? {
         esValida: true,
-        error: limpiarTextoError(),
+        error: '',
       }
     : {
         esValida: false,
@@ -45,7 +57,7 @@ export const tieneNumeros = (clave: string): ValidacionClave => {
     .split('')
     .some((elemento) => numeros.includes(elemento));
   return tieneNumeros
-    ? { esValida: true, error: limpiarTextoError() }
+    ? { esValida: true, error: '' }
     : {
         esValida: false,
         error: mostrarTextoError(textoError),
@@ -60,7 +72,7 @@ export const tieneCaracteresEspeciales = (clave: string): ValidacionClave => {
     .split('')
     .some((elemento) => caracteresEspeciales.includes(elemento));
   return tieneCaracteresEsp
-    ? { esValida: true, error: limpiarTextoError() }
+    ? { esValida: true, error: '' }
     : {
         esValida: false,
         error: mostrarTextoError(textoError),
@@ -73,7 +85,7 @@ export const tieneLongitudMinima = (clave: string): ValidacionClave => {
     'La clave debe de tener una longitud mínima de 8 caracteres';
   const tieneMasDe8Caracteres = clave.length;
   return tieneMasDe8Caracteres >= 8
-    ? { esValida: true, error: limpiarTextoError() }
+    ? { esValida: true, error: '' }
     : {
         esValida: false,
         error: mostrarTextoError(textoError),
@@ -87,13 +99,13 @@ export const tieneNombreUsuario = (
 ): ValidacionClave => {
   const textoError = 'La clave no debe tener el nombre del usuario';
 
-  return nombreUsuario === clave ||
-    nombreUsuario.toLowerCase() === clave.toLowerCase() ||
-    nombreUsuario.toUpperCase() === clave.toUpperCase()
+  return clave === nombreUsuario ||
+    clave.toLowerCase() === nombreUsuario.toLowerCase() ||
+    clave.toUpperCase() === nombreUsuario.toUpperCase()
     ? { esValida: false, error: mostrarTextoError(textoError) }
     : {
         esValida: true,
-        error: limpiarTextoError(),
+        error: '',
       };
 };
 
@@ -111,6 +123,6 @@ export const tienePalabrasComunes = (
     ? { esValida: false, error: mostrarTextoError(textoError) }
     : {
         esValida: true,
-        error: limpiarTextoError(),
+        error: '',
       };
 };
