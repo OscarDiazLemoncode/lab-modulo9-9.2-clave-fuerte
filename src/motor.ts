@@ -1,4 +1,4 @@
-import { commonPasswords, ValidacionClave } from './model';
+import { /* commonPasswords, */ ValidacionClave } from './model';
 import { mostrarTextoError, limpiarTextoError } from './ui';
 
 // Obtener value del input
@@ -101,7 +101,7 @@ export const tieneNombreUsuario = (
 export const tienePalabrasComunes = (
   clave: string,
   commonPasswords: string[]
-): ValidacionClave => {
+): any => {
   const textoError = 'La clave no debe de contener palabras comunes';
 
   const palabrasComunes = commonPasswords.some((palabra) =>

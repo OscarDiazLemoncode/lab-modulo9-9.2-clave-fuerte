@@ -51,7 +51,7 @@ export const eventos = () => {
       console.log(tieneCaracteresEspeciales(clave));
       console.log(tieneLongitudMinima(clave));
       console.log(tieneNombreUsuario('Lemoncode', clave));
-      console.log(tienePalabrasComunes(commonPasswords, clave));
+      console.log(tienePalabrasComunes(clave, commonPasswords));
     });
   }
 };
