@@ -2,7 +2,7 @@ import { valorInputNombre, valorInputContraseña, validarClave } from './motor';
 import { commonPasswords } from './model';
 
 // Muestra mensaje de errores
-export const mostrarTextoError = (texto: string): string => {
+export const mostrarTexto = (texto: string): string => {
   const mensaje = document.querySelector('.mensaje');
   if (
     mensaje !== null &&

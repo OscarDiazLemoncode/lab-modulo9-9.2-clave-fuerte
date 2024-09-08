@@ -98,6 +98,9 @@ button:focus-visible {
   }
 }
 .checked {
-  border: 2px solid #29ab3263;
-  background-color: #3ddb4917;
+  border: 1px solid #29ab3263;
+  background-color: #3ddb490f;
+}
+.valida {
+  color: #33cd3e;
 }
