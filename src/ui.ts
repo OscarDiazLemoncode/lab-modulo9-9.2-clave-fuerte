@@ -15,7 +15,7 @@ export const mostrarTexto = (texto: string): string => {
 };
 
 // Limpia mensaje de errores
-export const limpiarTextoError = () => {
+export const limpiarTextoError = (): string => {
   const mensaje = document.querySelector('.mensaje');
   if (
     mensaje !== null &&
@@ -47,6 +47,7 @@ export const eventos = () => {
       const nombreUsuario = valorInputNombre();
       const clave = valorInputContraseña();
       validarClave(nombreUsuario, clave, commonPasswords);
+      console.log(validarClave(nombreUsuario, clave, commonPasswords));
     });
   }
 };

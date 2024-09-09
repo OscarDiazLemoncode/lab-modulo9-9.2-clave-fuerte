@@ -83,7 +83,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 .mensaje {
-  color: #fd8a0e;
+  color: #7b7b7b;
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -96,11 +96,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-.checked {
-  border: 1px solid #29ab3263;
-  background-color: #3ddb490f;
-}
-.valida {
-  color: #33cd3e;
 }

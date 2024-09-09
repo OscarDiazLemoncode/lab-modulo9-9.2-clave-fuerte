@@ -3,9 +3,9 @@ import {
   tieneMayusculasYMinusculas,
   tieneNumeros,
   tieneCaracteresEspeciales,
+  /* validarClave, */
 } from './motor';
 import { ValidacionClave } from './model';
-//import { mostrarTexto } from './ui';
 
 describe('tieneMayusculasYMinusculas', () => {
   it('deberia devolver throw si las entradas son undefined', () => {
@@ -39,7 +39,7 @@ describe('tieneMayusculasYMinusculas', () => {
   /* it('deberia devolver error si no tiene mayusculas', () => {
     // Arrange
     const clave: string = 'string';
-    vi.spyOn(global, 'mostrarTexto').mockReturnValue(
+    vi.spyOn(validarClave, 'error').mockReturnValue(
       'La clave debe tener mayúsculas y minúsculas'
     );
     const resultadoEsperado: ValidacionClave = {
@@ -52,7 +52,7 @@ describe('tieneMayusculasYMinusculas', () => {
     // Assert
     expect(result).toEqual(resultadoEsperado);
     // Restaurar la implementación original
-    spy.mockRestore();
+    //spy.mockRestore();
   }); */
 });
 
