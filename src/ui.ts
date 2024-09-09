@@ -47,7 +47,6 @@ export const eventos = () => {
       const nombreUsuario = valorInputNombre();
       const clave = valorInputContraseña();
       validarClave(nombreUsuario, clave, commonPasswords);
-      console.log(validarClave(nombreUsuario, clave, commonPasswords));
     });
   }
 };

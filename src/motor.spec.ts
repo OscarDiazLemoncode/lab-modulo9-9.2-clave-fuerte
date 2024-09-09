@@ -36,12 +36,12 @@ describe('tieneMayusculasYMinusculas', () => {
     // Assert
     expect(result).toEqual(resultadoEsperado);
   });
-  /* it('deberia devolver error si no tiene mayusculas', () => {
+  it('deberia devolver error si no tiene mayusculas', () => {
     // Arrange
     const clave: string = 'string';
-    vi.spyOn(validarClave, 'error').mockReturnValue(
+    /* vi.spyOn(validarClave, 'error').mockReturnValue(
       'La clave debe tener mayúsculas y minúsculas'
-    );
+    ); */
     const resultadoEsperado: ValidacionClave = {
       esValida: false,
       error: 'La clave debe tener mayúsculas y minúsculas',
@@ -53,7 +53,7 @@ describe('tieneMayusculasYMinusculas', () => {
     expect(result).toEqual(resultadoEsperado);
     // Restaurar la implementación original
     //spy.mockRestore();
-  }); */
+  });
 });
 
 describe('tieneNumeros', () => {

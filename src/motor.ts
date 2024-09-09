@@ -46,7 +46,6 @@ export const tieneMayusculasYMinusculas = (clave: string): ValidacionClave => {
     } else {
       return {
         esValida: false,
-        //error: mostrarTexto(textoError),
         error: mostrarTexto(textoError),
       };
     }
