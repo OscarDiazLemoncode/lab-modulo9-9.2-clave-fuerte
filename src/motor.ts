@@ -50,25 +50,7 @@ export const tieneMayusculasYMinusculas = (clave: string): ValidacionClave => {
       };
     }
   }
-  throw new Error('No se ha definido una clave');
-
-  /* // Verificamos si tiene mayusculas
-  const tieneMayusculas = clave
-    .split('')
-    .some((letra) => letra === letra.toUpperCase());
-  // Verificamos si tiene minusculas
-  const tieneMinusculas = clave
-    .split('')
-    .some((letra) => letra === letra.toLowerCase());
-  return tieneMayusculas && tieneMinusculas
-    ? {
-        esValida: true,
-        error: '',
-      }
-    : {
-        esValida: false,
-        error: mostrarTexto(textoError),
-      }; */
+  throw new Error('No se ha definido una clave');  
 };
 
 // La clave debe de tener números.
@@ -89,15 +71,6 @@ export const tieneNumeros = (clave: string): ValidacionClave => {
     };
   }
   throw new Error('No se ha definido una clave');
-  /* const tieneNumeros = clave
-    .split('')
-    .some((elemento) => numeros.includes(elemento));
-  return tieneNumeros
-    ? { esValida: true, error: '' }
-    : {
-        esValida: false,
-        error: mostrarTexto(textoError),
-      }; */
 };
 
 // La clave debe de tener caracteres especiales (@,#,+, _, ...)

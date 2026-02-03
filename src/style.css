@@ -83,8 +83,31 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 .mensaje {
-  color: #7b7b7b;
+  color: #ed9000;
 }
+
+fieldset input {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.icon_password {
+  position: relative;
+    display: inline-block;
+    right: 5px;
+    bottom: 16px;
+    & img{
+      position: absolute;
+        right: 8px;
+        cursor: pointer;
+    }
+}
+
+.valid_format {
+    color: #0cb10c;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
